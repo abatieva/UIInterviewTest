@@ -1,75 +1,112 @@
-<h1>Create New Property</h1>
+<div class="container">
+<%= link_to "Back", properties_path, html_options = {class: 'back-link '}  %>
+<div class="property-h">Add New Property</div>
+<div class="property">
+<div class="row">
+<div class="col-sm-12">
 
 <%= render partial: "/shared/errors", locals: { model: @property } %>
-
+<div class="property-form">
 <%= form_for @property do |f| %>
-  <div>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+ <div class="form-group row">
+    <%= f.label :name, html_options = {class: "col-2 col-form-label"}%>
+    <div class="col-10">
+    <%= f.text_field :name, html_options = {class: "form-control"}%>
   </div>
-  <div>
-    <%= f.label :street_one %>
-    <%= f.text_field :street_one %>
   </div>
-  <div>
-    <%= f.label :street_two %>
-    <%= f.text_field :street_two %>
+   <div class="form-group row">
+    <%= f.label :street_one, html_options = {class: "col-2 col-form-label"} %>
+     <div class="col-10">
+    <%= f.text_field :street_one, html_options = {class: "form-control"}%>
   </div>
-  <div>
-    <%= f.label :city %>
-    <%= f.text_field :city %>
   </div>
-  <div>
-    <%= f.label :state_province %>
-    <%= f.text_field :state_province %>
+   <div class="form-group row">
+    <%= f.label :street_two, html_options = {class: "col-2 col-form-label"} %>
+     <div class="col-10">
+    <%= f.text_field :street_two, html_options = {class: "form-control"}%>
   </div>
-  <div>
-    <%= f.label :country %>
-    <%= f.text_field :country %>
   </div>
-  <div>
-    <%= f.label :latitude %>
-    <%= f.text_field :latitude %>
+   <div class="form-group row">
+    <%= f.label :city, html_options = {class: "col-2 col-form-label"} %>
+     <div class="col-10">
+    <%= f.text_field :city, html_options = {class: "form-control"}%>
   </div>
-  <div>
-    <%= f.label :longitude %>
-    <%= f.text_field :longitude %>
   </div>
-  <div>
-    <%= f.label :phone_number %>
-    <%= f.text_field :phone_number %>
+   <div class="form-group row">
+    <%= f.label :state_province, html_options = {class: "col-2 col-form-label"} %>
+     <div class="col-10">
+    <%= f.text_field :state_province, html_options = {class: "form-control"}%>
   </div>
-  <div>
-    <%= f.label :sales_email %>
-    <%= f.text_field :sales_email %>
   </div>
-  <div>
-    <%= f.label :reservation_email %>
-    <%= f.text_field :reservation_email %>
+   <div class="form-group row">
+    <%= f.label :country, html_options = {class: "col-2 col-form-label"} %>
+     <div class="col-10">
+    <%= f.text_field :country, html_options = {class: "form-control"}%>
   </div>
-  <div>
-    <%= f.label :description %>
-    <%= f.text_area :description %>
   </div>
-  <div>
-    <%= f.label :amenities %>
-    <%= f.text_area :amenities %>
+   <div class="form-group row">
+    <%= f.label :latitude, html_options = {class: "col-2 col-form-label"} %>
+     <div class="col-10">
+    <%= f.text_field :latitude, html_options = {class: "form-control"}%>
   </div>
-  <div>
-    <%= f.label :attractions %>
-    <%= f.text_area :attractions %>
   </div>
-  <div>
-    <%= f.label :meeting_space %>
-    <%= f.text_area :meeting_space %>
+   <div class="form-group row">
+    <%= f.label :longitude, html_options = {class: "col-2 col-form-label"} %>
+     <div class="col-10">
+    <%= f.text_field :longitude, html_options = {class: "form-control"}%>
+  </div>
+  </div>
+   <div class="form-group row">
+    <%= f.label :phone_number, html_options = {class: "col-2 col-form-label"} %>
+     <div class="col-10">
+    <%= f.text_field :phone_number, html_options = {class: "form-control"}%>
+  </div>
+  </div>
+   <div class="form-group row">
+    <%= f.label :sales_email, html_options = {class: "col-2 col-form-label"} %>
+     <div class="col-10">
+    <%= f.text_field :sales_email, html_options = {class: "form-control"}%>
+  </div>
+  </div>
+   <div class="form-group row">
+    <%= f.label :reservation_email, html_options = {class: "col-2 col-form-label"} %>
+     <div class="col-10">
+    <%= f.text_field :reservation_email, html_options = {class: "form-control"}%>
+  </div>
+  </div>
+   <div class="form-group row">
+    <%= f.label :description, html_options = {class: "col-2 col-form-label"} %>
+     <div class="col-10">
+    <%= f.text_area :description, html_options = {class: "form-control"}%>
+  </div>
+  </div>
+   <div class="form-group row">
+    <%= f.label :amenities, html_options = {class: "col-2 col-form-label"} %>
+     <div class="col-10">
+    <%= f.text_area :amenities, html_options = {class: "form-control"}%>
+  </div>
+  </div>
+   <div class="form-group row">
+    <%= f.label :attractions, html_options = {class: "col-2 col-form-label"} %>
+     <div class="col-10">
+    <%= f.text_area :attractions, html_options = {class: "form-control"}%>
+  </div>
+  </div>
+   <div class="form-group row">
+    <%= f.label :meeting_space, html_options = {class: "col-2 col-form-label"} %>
+     <div class="col-10">
+    <%= f.text_area :meeting_space, html_options = {class: "form-control"}%>
+  </div>
   </div>
 
-  <div>
-    <%= f.label :picture %>
-    <%= f.file_field :picture %>
+   <div class="form-group row">
+    <%= f.label :picture, html_options = {class: "col-2 col-form-label"} %>
+     <div class="col-10">
+    <%= f.file_field :picture, html_options = {class: "form-control"}%>
+  </div>
   </div>
 
-  <%= f.submit "Save" %>
+  <%= f.submit "Save", html_options = {class: "btn btn-primary"}%>
 <% end %>
-
-<%= link_to "Back", properties_path %>
+</div>
+</div></div>

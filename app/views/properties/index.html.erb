@@ -1,19 +1,17 @@
-<h1>Properties</h1>
-<table>
-  <thead>
-    <td>Name</td>
-    <td>Location</td>
-    <td>Actions</td>
-  </thead>
-  <tbody>
-    <% @properties.each do |property| %>
-      <tr>
-        <td><%= property.name %></td>
-        <td><%= raw property_location(property) %></td>
-        <td><%= link_to "Details", property_path(property) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="properties-list-h">
+<%= link_to "Create New Property", new_property_path, html_options = {class: 'new-property-link btn btn-primary float-right'} %>
+Properties</div>
 
-<%= link_to "Create New Property", new_property_path %>
+    <div class="row property-listing">
+    <% @properties.each do |property| %>
+      <div class="property-item">
+          <% if property.picture.present? %>
+            <img src='/uploads/<%= property.picture %>' />
+          <% end %>
+        <div class="property-name"><%= property.name %></div>
+        <div class="property-location"><%= raw property_location(property) %></div>
+        <%= link_to "Details", property_path(property), html_options = {class: 'property-details-link'} %>
+      </div>
+    <% end %>
+</div>
+

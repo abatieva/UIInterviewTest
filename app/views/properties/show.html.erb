@@ -1,24 +1,48 @@
-<h1><%= @property.name %></h1>
-<p><%= @property.description %></p>
 
-<% if @property.picture.present? %>
-  <img src='/uploads/<%= @property.picture %>' />
-<% end %>
 
-<h2>Location</h2>
+<div class="container">
+<%= link_to "Back", properties_path, html_options = {class: 'back-link '}  %>
+<div class="property-h"><%= @property.name %></div>
+<div class="row property">
+<div class="col-sm-8">
+    <% if @property.picture.present? %>
+            <img src='/uploads/<%= @property.picture %>' class="img-fluid m-auto property-photo" />
+
+    <% end %>
+    <div class="property-desc"><%= @property.description %></div>
+
+  <div id="map" class="property-map"></div> </div>
+<div class="col-sm-4 property-features">
+<div class="">
+<%= link_to "Edit", edit_property_path(@property), html_options = {class: 'float-right btn btn-secondary'}  %>
+<div class="h3">Location</div>
 <p><%= raw property_location(@property) %></p>
-<p><strong>Latitude</strong> <%= @property.latitude %></p>
-<p><strong>Longitude</strong> <%= @property.longitude %></p>
 
-<h2>Contact</h2>
+<div class="h3">Contact</div>
 <p><strong>Phone</strong> <%= @property.phone_number %></p>
 <p><strong>Sales Email</strong> <%= @property.sales_email %></p>
-<p><strong>Reservation Email Email</strong> <%= @property.reservation_email %></p>
+<p><strong>Reservation Email</strong> <%= @property.reservation_email %></p>
 
-<h2>Amenities</h2>
+<div class="h3">Amenities</div>
 <p><%= simple_format(@property.amenities) %></p>
 
-<h2>Attractions</h2>
+<div class="h3">Attractions</div>
 <p><%= simple_format(@property.attractions) %></p>
+</div></div></div></div>
 
-<%= link_to "Back", properties_path %>
+ <script>
+      function initMap() {
+        var uluru = {lat: <%= @property.latitude %>, lng: <%= @property.longitude %>};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 7,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA73CM3rQf3YV6PBbjl7w0OCXGFiergjJM&callback=initMap">
+    </script>
